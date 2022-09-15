@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
 
-module.exports = nextConfig
+module.exports = {
+  images: {
+    domains: ['ik.imagekit.io'],
+    formats: ['image/avif', 'image/webp'],
+  },
+
+  nextConfig: {
+    reactStrictMode: true,
+    swcMinify: true,
+  }
+}
