@@ -1,11 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap');
 
+$breakpoints: (
+  mobile: 768px,
+  laptop: 1240px,
+  desktop-lg: 1800px
+);
+
+@font-face {
+  font-family: 'Casanova';
+  src: url('../fonts/Casanova/Casanova.ttf'); 
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NightStillComes';
+  src: url('../fonts/NightStillComes/NightStillComes_bold.otf');
+  src: url('../fonts/NightStillComes/NightStillComes_bolditalic.otf');
+  src: url('../fonts/NightStillComes/NightStillComes_italic.otf');
+  
+  font-weight: 400;
+  font-style: normal;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'NightStillComes', serif;
+
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+
+  &::-webkit-scrollbar { 
+      display: none;  /* Safari and Chrome */
+  }
+
+  @media (min-width: map-get($breakpoints, mobile)) {
     font-size: 20px;
+  }
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    font-size: 16px;
+  }
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Casanova', serif;
+}
+
+p{
+  line-height: 1.8rem;
 }
 
 a {

@@ -9,7 +9,8 @@ $breakpoints: (
   
   margin: 0 auto;
 
-  max-width: 1900px;
+  max-width: 1100px;
+  // max-width: 1800px;
 
   @media (min-width: map-get($breakpoints, mobile)) {
     padding: 0 3rem;
@@ -17,36 +18,120 @@ $breakpoints: (
   }
 
   @media (max-width: map-get($breakpoints, mobile)) {
-    padding: 0 1.5rem;
+    padding: 0 0.5rem;
     padding-bottom: 1.5rem;
+  }
+}
+
+.btn{
+  font-size: 1rem;
+  padding: 0.4rem 1rem;
+  border-radius: 1rem;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+
+  &:hover{
+  background-color: black;
+  color: white;
   }
 }
 
 .header{
   display: flex;
+  align-items: center;
   justify-content: space-between;
 
   border-bottom: 2px solid gray;
 
   h1{
     cursor: pointer;
+    font-weight: normal;
+
+    margin: 0.6rem 0;
+  }
+
+  .nav{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+
+    a{
+      margin-left: 1rem;
+      padding: 0.5rem 0;
+      position: relative;
+
+      &::before{
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+
+        width: 100%;
+        height: 2px;
+        background-color: black;
+
+        display: none;
+      }
+
+      &:hover{
+        &::before{
+          display: block;
+        }
+      }
+    }
   }
 }
 
 .titletext{
-  display: flex;
+  // display: flex;
   width: 100%;
+  text-align: center;
 
-  font-size: 2.5em;
-
-  padding:  4rem 0;
 
   justify-content: center;
+
+  .sub{
+    font-size: 1rem;
+  }
+
+  @media (min-width: map-get($breakpoints, laptop)) {
+    font-size: 2.5em;
+    padding:  3rem 0;
+
+    p{
+      margin: 1rem 0;
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, laptop)) {
+    font-size: 2em;
+    padding:  3rem 0;
+
+    p{
+      margin: 1rem 0;
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    font-size: 1.2em;
+    padding:  1rem 0;
+
+    p{
+      margin: 0.5rem 0;
+    }
+  }
 }
 
 .loader{
   position: fixed;
   background-color: white;
+
 
   top: 0;
   left: 0;
@@ -58,13 +143,56 @@ $breakpoints: (
 
   display: grid;
   place-items: center;
+  text-align: center;
 
   p{
-    font-size: 2rem;
     font-weight: bold;
+  }
+
+  @media (min-width: map-get($breakpoints, laptop)) {
+    font-size: 2.5em;
+    padding:  3rem;
+  }
+
+  @media (max-width: map-get($breakpoints, laptop)) {
+    font-size: 2em;
+    padding:  3rem;
+  }
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    font-size: 1.5rem;
+    padding:  1.5rem;
   }
 }
 
+.linkSection{
+  border-top: 2px solid gray;
+  border-bottom: 2px solid gray;
+
+  margin: 1rem 0;
+  padding: 3rem 0;
+
+  text-align: center;
+
+  .title{
+    text-transform: uppercase;
+    font-size: 3rem;
+    margin: 0;
+
+    @media (min-width: map-get($breakpoints, mobile)) {
+      font-size: 3rem;
+    }
+  
+    @media (max-width: map-get($breakpoints, mobile)) {
+      font-size: 40px;
+    }
+  }
+
+  .sub{
+    padding: 1rem 0;
+  }
+  
+}
 
 .wrapper{
   position: fixed;
@@ -82,8 +210,6 @@ $breakpoints: (
 .formContainer{
   background-color: white;
   border: black solid 5px;
-  padding: 4rem;
-  // display: none;
 
   position: relative;
   transform: translate(-50%,-50%);
@@ -92,16 +218,49 @@ $breakpoints: (
   z-index: 20;
   transition: transform 0.2s;
 
+  max-width: 500px;
+
+  h1{
+    font-weight: normal;
+  }
+
   @media (min-width: map-get($breakpoints, laptop)) {
-    width: 50%;
+    width: 40%;
+    padding: 4rem;
+
+    .closeButton{
+      transform: translate(100%,-100%);
+    }
+
+    fieldset{
+      padding: 1rem 0;
+    }
   }
 
   @media (max-width: map-get($breakpoints, laptop)) {
     width: 70%;
+    padding: 3rem;
+
+    .closeButton{
+      transform: translate(100%,-100%);
+    }
+
+    fieldset{
+      padding: 1rem 0;
+    }
   }
 
   @media (max-width: map-get($breakpoints, mobile)) {
-    width: 80%;
+    width: 95%;
+    padding: 0.5rem 1rem;
+
+    .closeButton{
+      transform: translate(20%,-30%);
+    }
+
+    fieldset{
+      padding: 0.3rem 0;
+    }
   }
 
   .formGroup{
@@ -126,16 +285,12 @@ $breakpoints: (
     font-weight: bold;
     font-size: 2rem;
     float: right;
-
-    transform: translate(100%,-100%);
   }
 
   fieldset{
     width: 100%;
     margin: 0;
     border: 0;
-
-    padding: 1rem 0;
 
     input{
       width: 100%;
@@ -156,7 +311,6 @@ $breakpoints: (
     background-color: black;
     border: 2px solid black;
     color: white;
-    font-weight: bold;
 
     &:hover{
     background-color: white;
@@ -166,7 +320,7 @@ $breakpoints: (
 }
 
 .submitsection{
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #FAFAFA;
 
   width: 100%;
 
@@ -178,11 +332,11 @@ $breakpoints: (
   button{
     all: unset;
 
-    padding: 0.3rem 1.5rem;
+    padding: 0.2rem 1.5rem;
     border-radius: 1.2rem;
 
     font-size: 1.2rem;
-    border: 2px gray solid;
+    border: 1px gray solid;
 
     &:hover{
       cursor: pointer;
@@ -215,26 +369,32 @@ $breakpoints: (
   display: grid;
   width: 100%;
 
-  gap: 1.5em;
-
   @media (min-width: map-get($breakpoints, desktop-lg)) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-auto-rows: minmax(1%, 2fr);
+    // grid-auto-rows: minmax(1%, 2fr);
+
+    gap: 1.5em;
   }
 
   @media (max-width: map-get($breakpoints, desktop-lg)) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-auto-rows: minmax(1%, 2fr);
+    // grid-auto-rows: minmax(1%, 2fr);
+
+    gap: 1.5em;
   }
 
   @media (max-width: map-get($breakpoints, laptop)) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-auto-rows: minmax(1%, 2fr);
+    // grid-auto-rows: minmax(1%, 2fr);
+
+    gap: 1.5em;
   }
 
   @media (max-width: map-get($breakpoints, mobile)) {
     grid-template-columns: 1fr 1fr;
-    grid-auto-rows: minmax(250px, 2fr);
+    // grid-auto-rows: minmax(250px, 2fr);
+
+    gap: 0.5em;
 
     .gridimage:last-of-type{
       display: none;
@@ -257,7 +417,7 @@ $breakpoints: (
   &::before{
     content: " ";
 
-    padding-bottom: 100%;
+    padding-top: 125%;
     display: block;
   }
 }
@@ -325,13 +485,26 @@ $breakpoints: (
   display: flex;
   justify-content: center;
   text-align: center;
+
+  // font-weight: normal;
+
+  h1{
+    font-weight: normal;
+  }
 }
 
 .texttitle{
-  font-size: 3rem;
-  font-weight: bold;
   text-transform: uppercase;
   margin: 0.5em 0 0.2em 0; 
+
+  @media (min-width: map-get($breakpoints, mobile)) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    font-size: 40px;
+  }
+
 }
 
 .stylerow{
@@ -381,38 +554,45 @@ $breakpoints: (
   }
 }
 
+.row{
+  padding-bottom: 2rem;
+}
+
 .imgrow{
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   display: grid;
 
   gap: 1.5em;
 
   @media (min-width: map-get($breakpoints, desktop-lg)) {
-    width: 60%;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-rows: minmax(1%, 2fr);
   }
 
   @media (max-width: map-get($breakpoints, desktop-lg)) {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-rows: minmax(1%, 2fr);
   }
 
   @media (max-width: map-get($breakpoints, laptop)) {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-rows: minmax(1%, 2fr);
+
+    & div:last-of-type{
+      display: block;
+    }
   }
 
   @media (max-width: map-get($breakpoints, mobile)) {
     width: 100%;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-rows: minmax(250px, 2fr);
+    grid-template-columns: 1fr 1fr;
+
+    & div:last-of-type{
+      display: none;
+    }
   }
 
   .img{
     width: 100%;
-    height: 100%;
 
     background-position: center; 
     background-repeat: no-repeat;
@@ -424,14 +604,8 @@ $breakpoints: (
     &::before{
       content: " ";
   
-      padding-bottom: 100%;
+      padding-top: 125%;
       display: block;
     }
   }
 }
-
-// :checked+.img img {
-//   transform: scale(0.9);
-//   box-shadow: 0 0 5px #333;
-//   z-index: -1;
-// }  

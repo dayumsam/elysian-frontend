@@ -4,7 +4,8 @@ export default function Form({handleClick, data}){
     return(
         <>
             <div className={styles.titletext}>
-            Tell us about the styles that excite you!
+                <p>Tell us about the styles that excite you!</p>
+                <p className={styles.sub}> select the styles you like</p>
             </div>
 
             <form className={styles.imageselection}>
