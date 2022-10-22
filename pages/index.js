@@ -19,14 +19,13 @@ export default function Home() {
     
     useEffect(() => {
         window.scrollTo(0, 0)
-        console.log(contactVisible);
     }, [response])
 
     let baseUrl = `${process.env.NEXT_PUBLIC_API_URL}`
 
     useEffect(() => {
         setImgLoading(true)
-        fetch(`${baseUrl}/get_image`)
+        fetch(`${baseUrl}/images`)
         .then((res) => res.json())
         .catch((err)=>{
             alert("Something went wrong");

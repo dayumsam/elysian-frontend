@@ -73,7 +73,7 @@ export default function ContactForm({data, contactFormClose, setResponse}){
 
         let baseUrl = `${process.env.NEXT_PUBLIC_API_URL}`
 
-        fetch(`${baseUrl}/generate_result`, {
+        fetch(`${baseUrl}/results`, {
             method: 'POST', 
             mode: 'cors', 
             headers: {'Content-Type': 'application/json'},

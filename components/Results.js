@@ -1,9 +1,11 @@
 import styles from '../styles/Home.module.scss'
 
-export default function ResultSection({data,setContactVisible}){
-    setContactVisible(false)
+import { useEffect } from 'react';
 
-    let baseUrl = 'https://gaurang3998.wixsite.com/elysian/popular-1-1/'
+export default function ResultSection({data,setContactVisible}){
+    useEffect(()=>{
+        setContactVisible(false)
+    }, [])
 
     data = data["output"]
     let primaryStyle = data[0]
@@ -49,7 +51,7 @@ export default function ResultSection({data,setContactVisible}){
                 <h1>Your style overview</h1>
             </div>
             <div className={styles.imgrow}>
-                {primaryStyle.photo.map((img)=>(
+                {primaryStyle.images.map((img)=>(
                     <div className={styles.img} key={img.fileId} style={{backgroundImage: `url(${img.url})`}}/>
                 ))}
             </div>
@@ -142,7 +144,7 @@ export default function ResultSection({data,setContactVisible}){
 
             <div className={styles.row}>
                 <div className={styles.imgrow}>
-                    {data[1].photo.map((img)=>(
+                    {data[1].images.map((img)=>(
                         <div className={styles.img} key={img.fileId} style={{backgroundImage: `url(${img.url})`}}/>
                     ))}
                 </div>
@@ -162,7 +164,7 @@ export default function ResultSection({data,setContactVisible}){
 
             <div className={styles.row}>
                 <div className={styles.imgrow}>
-                    {data[2].photo.map((img)=>(
+                    {data[2].images.map((img)=>(
                         <div className={styles.img} key={img.fileId} style={{backgroundImage: `url(${img.url})`}}/>
                     ))}
                 </div>
